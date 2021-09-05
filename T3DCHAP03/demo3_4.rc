@@ -1,0 +1,34 @@
+#include "DEMO3_4RES.H"
+
+// the icon and cursor resource
+ICON_T3DX        ICON   t3dx.ico
+CURSOR_CROSSHAIR CURSOR crosshair.cur
+
+// the sound resources
+SOUND_ID_ENERGIZE   WAVE energize.wav
+SOUND_ID_BEAM       WAVE beam.wav
+SOUND_ID_TELEPORT   WAVE teleport.wav
+SOUND_ID_WARP       WAVE warp.wav
+
+// the menu resource
+SoundMenu MENU DISCARDABLE
+{
+POPUP "&File"
+	{
+	MENUITEM "E&xit",  MENU_FILE_ID_EXIT
+	} // end popup
+
+POPUP "&PlaySound"
+	{
+        MENUITEM  "Energize!",             MENU_PLAY_ID_ENERGIZE          
+        MENUITEM  "Beam Me Up",           MENU_PLAY_ID_BEAM              
+        MENUITEM  "Engage Teleporter",    MENU_PLAY_ID_TELEPORT           
+        MENUITEM  "Quantum Warp Teleport", MENU_PLAY_ID_WARP               
+	} // end popup
+
+POPUP "Help"
+	{
+	MENUITEM "About",  MENU_HELP_ABOUT
+	} // end popup
+
+} // end top level menu

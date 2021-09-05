@@ -1,0 +1,62 @@
+Errata for Revision I
+
+ENTRY 1: ************************************************************************
+
+In the T3DCONSOLE2.CPP (16-bit functionality for window setup) code in the book there 
+are a couple changes that were made to make the code work with Win2000/XP. The changes 
+are all on the CD, but the code in the book has the old version. The code of interest
+is this section below:
+
+// create the window
+if (!(hwnd = CreateWindowEx(NULL,                  // extended style
+                            WINDOW_CLASS_NAME,     // class
+			    WINDOW_TITLE, // title
+			    (WINDOWED_APP ? (WS_OVERLAPPED | WS_SYSMENU | WS_CAPTION) : (WS_POPUP | WS_VISIBLE)), 
+			    0,0,	  // initial x,y
+			    WINDOW_WIDTH,WINDOW_HEIGHT,  // initial width, height
+			    NULL,	  // handle to parent 
+			    NULL,	  // handle to menu
+			    hinstance,// instance of this application
+			    NULL)))	// extra creation parms
+return(0);
+
+
+// ******** IN THE ABOVE CODE THE WS_CAPTION NOW REPLACES WS_VISIBLE
+
+
+// save main window handle
+main_window_handle = hwnd;
+
+if (WINDOWED_APP)
+{
+// now resize the window, so the client area is the actual size requested
+// since there may be borders and controls if this is going to be a windowed app
+// if the app is not windowed then it won't matter
+RECT window_rect = {0,0,WINDOW_WIDTH-1,WINDOW_HEIGHT-1};
+
+// ********* I HAVE ADDED A "-1" TO THE WIDTH AND THE HEIGHT AS SHOWN ABOVE
+
+
+// make the call to adjust window_rect
+AdjustWindowRectEx(&window_rect,
+     GetWindowStyle(main_window_handle),
+     GetMenu(main_window_handle) != NULL,
+     GetWindowExStyle(main_window_handle));
+
+// save the global client offsets, they are needed in DDraw_Flip()
+window_client_x0 = -window_rect.left;
+window_client_y0 = -window_rect.top;
+
+// now resize the window with a call to MoveWindow()
+MoveWindow(main_window_handle,
+           0, // x position
+           0, // y position
+           window_rect.right - window_rect.left, // width
+           window_rect.bottom - window_rect.top, // height
+           TRUE);
+
+// ***** THE X AND Y POSITION ARE NOW 0 RATHER THAN THE DEFAULT VALUES
+
+****************************************************************************************
+
+end of errata

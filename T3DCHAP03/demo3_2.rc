@@ -1,0 +1,15 @@
+#include "DEMO3_2RES.H"
+
+
+// the sound resources
+SOUND_ID_CREATE   WAVE create.wav
+SOUND_ID_MUSIC    WAVE techno.wav
+
+// icon resources
+ICON_T3DX ICON T3DX.ICO
+
+// cursor resources
+CURSOR_CROSSHAIR CURSOR CROSSHAIR.CUR
+
+
+

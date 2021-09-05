@@ -1,0 +1,18 @@
+#include "DEMO3_3RES.H"
+
+MainMenu MENU DISCARDABLE
+{
+POPUP "File"
+	{
+	MENUITEM "Open",  MENU_FILE_ID_OPEN
+	MENUITEM "Close", MENU_FILE_ID_CLOSE
+	MENUITEM "Save",  MENU_FILE_ID_SAVE
+	MENUITEM "Exit",  MENU_FILE_ID_EXIT
+	} // end popup
+
+POPUP "Help"
+	{
+	MENUITEM "About",  MENU_HELP_ABOUT
+	} // end popup
+
+} // end top level menu

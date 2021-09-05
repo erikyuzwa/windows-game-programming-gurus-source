@@ -1,4 +1,4 @@
-# Tricks of the Windows Game Programming Gurus Source Code
+Tricks of the Windows Game Programming Gurus Source Code
 ===========================
 
-Original Source is copyrighted by Andre Lamothe.
+Original Source is copyrighted 1999 by Andre Lamothe
